@@ -26,9 +26,9 @@ class WhatsAppController extends Controller
      */
     public function verifyWebhook(Request $request)
     {
-        $mode = $request->query('hub_mode');
-        $token = $request->query('hub_verify_token');
-        $challenge = $request->query('hub_challenge');
+        $mode = $request->query('hub.mode');
+        $token = $request->query('hub.verify_token');
+        $challenge = $request->query('hub.challenge');
 
         if ($mode === 'subscribe' && $token === 'laravel-whatsapp-webhook') {
             return response($challenge, 200);
